@@ -16,7 +16,14 @@ namespace ComputerBuilder
             _oyun.GecenSureDegisti += Oyun_GecenSureDegisti;
         }
 
-        private void AnaForm_KeyDown(object sender, KeyEventArgs e)
+
+        private void Oyun_GecenSureDegisti(object sender, EventArgs e)
+        {
+            sureLabel.Text = _oyun.GecenSure.ToString(@"m\:ss");
+        }
+
+
+        private void AnaForm_KeyDown_1(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
             {
@@ -30,11 +37,6 @@ namespace ComputerBuilder
                     _oyun.BilgisayariHareketEttir(Yon.Sola);
                     break;
             }
-        }
-
-        private void Oyun_GecenSureDegisti(object sender, EventArgs e)
-        {
-            sureLabel.Text = _oyun.GecenSure.ToString(@"m\:ss");
         }
     }
 }

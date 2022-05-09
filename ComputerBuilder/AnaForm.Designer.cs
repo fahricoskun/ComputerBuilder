@@ -86,6 +86,7 @@
             this.Name = "AnaForm";
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AnaForm_KeyDown_1);
             this.bilgiPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 

@@ -64,9 +64,9 @@ namespace ComputerBuilder.Library.Concrete
 
         private void BilgisayarOlustur()
         {
-            var bilgisayar = new Bilgisayar(_bilgisayarPanel.Width) 
-            { 
-                Image = Image.FromFile(@"Görseller\bilgisayar.png") 
+            var bilgisayar = new Bilgisayar(_bilgisayarPanel.Width)
+            {
+                Image = Image.FromFile(@"Görseller\Bilgisayar.png")
             };
             _bilgisayarPanel.Controls.Add(bilgisayar);
         }
