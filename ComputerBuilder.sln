@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32421.90
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComputerBuilder.Desktop", "ComputerBuilder\ComputerBuilder.Desktop.csproj", "{A3F473D9-35E5-4FB1-A3CC-81F3B0229882}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComputerBuilder.Library", "ComputerBuilder.Library\ComputerBuilder.Library.csproj", "{ED500264-9C90-4E99-9C6A-20CDF1400D64}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A3F473D9-35E5-4FB1-A3CC-81F3B0229882}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3F473D9-35E5-4FB1-A3CC-81F3B0229882}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3F473D9-35E5-4FB1-A3CC-81F3B0229882}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3F473D9-35E5-4FB1-A3CC-81F3B0229882}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED500264-9C90-4E99-9C6A-20CDF1400D64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED500264-9C90-4E99-9C6A-20CDF1400D64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED500264-9C90-4E99-9C6A-20CDF1400D64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED500264-9C90-4E99-9C6A-20CDF1400D64}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F8A0F1F2-1D88-4979-8871-6BBF7A87F1F0}
+	EndGlobalSection
+EndGlobal
