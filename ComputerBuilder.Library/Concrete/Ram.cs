@@ -6,10 +6,12 @@ namespace ComputerBuilder.Library.Concrete
 {
     internal class Ram : Cisim
     {
+        private static readonly Random Random = new Random();
+
         public Ram(Size hareketAlaniBoyutlari) : base(hareketAlaniBoyutlari)
         {
-            var random = new Random();
-            Left = random.Next(HareketAlaniBoyutlari.Width - Width + 1);
+            HareketMesafesi = (int)(Height * .1);
+            Left = Random.Next(HareketAlaniBoyutlari.Width - Width + 1);
         }
     }
 }

@@ -46,7 +46,13 @@
     <Compile Include="Abstract\Cisim.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Concrete\Anakart.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Concrete\Bilgisayar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Concrete\EkranKartı.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Concrete\Oyun.cs" />

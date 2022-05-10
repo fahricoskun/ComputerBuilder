@@ -12,7 +12,10 @@ namespace ComputerBuilder.Library.Concrete
         #region Alanlar
 
         private readonly Timer _gecenSureTimer = new Timer { Interval = 1000 };
+        private readonly Timer _hareketTimer = new Timer { Interval = 100 };
         private readonly Timer _ramOlusturmaTimer = new Timer { Interval = 2000 };
+        private readonly Timer _ekranKartiOlusturmaTimer = new Timer { Interval = 4000 };
+        private readonly Timer _anaKartOlusturmaTimer = new Timer { Interval = 6000 };
         private TimeSpan _gecenSure;
         private readonly Panel _bilgisayarPanel;
         private Bilgisayar _bilgisayar;
@@ -52,7 +55,10 @@ namespace ComputerBuilder.Library.Concrete
             _oyunAlaniPanel = oyunAlaniPanel;
             
             _gecenSureTimer.Tick += GecenSureTimer_Tick;
+            _hareketTimer.Tick += HareketTimer_Tick;
             _ramOlusturmaTimer.Tick += RamOlusturmaTimer_Tick;
+            _ekranKartiOlusturmaTimer.Tick += EkranKartiOlusturmaTimer_Tick;
+            _anaKartOlusturmaTimer.Tick += AnaKartOlusturmaTimer_Tick;
         }
 
         private void GecenSureTimer_Tick(object sender, EventArgs e)
@@ -60,26 +66,63 @@ namespace ComputerBuilder.Library.Concrete
             GecenSure += TimeSpan.FromSeconds(1);
         }
 
+        private void HareketTimer_Tick(object sender, EventArgs e)
+        {
+            RamleriHareketEttir();
+        }
+
+        private void RamleriHareketEttir()
+        {
+            foreach (var ram in _ramler)
+            {
+                ram.HareketEttir(Yon.Asagi);
+            }
+        }
+
         private void RamOlusturmaTimer_Tick(object sender, EventArgs e)
         {
             RamOlustur();
         }
 
+        private void EkranKartiOlusturmaTimer_Tick(object sender, EventArgs e)
+        {
+            EkranKartıOlustur();
+        }
+
+        private void AnaKartOlusturmaTimer_Tick(object sender, EventArgs e)
+        {
+            AnakartOlustur();
+        }
         public void Baslat()
         {
             if (DevamEdiyorMu) return;
             DevamEdiyorMu = true;
             _gecenSureTimer.Start();
+            _hareketTimer.Start();
 
             ZamanlayicilariBaslat();
             BilgisayarOlustur();
             RamOlustur();
+            EkranKartıOlustur();
+            AnakartOlustur();
+        }
+
+        private void AnakartOlustur()
+        {
+            var anakart = new Anakart(_oyunAlaniPanel.Size);
+            _oyunAlaniPanel.Controls.Add(anakart);
+        }
+
+        private void EkranKartıOlustur()
+        {
+            var ekrankartı = new EkranKartı(_oyunAlaniPanel.Size);
+            _oyunAlaniPanel.Controls.Add(ekrankartı);
         }
 
         private void RamOlustur()
         {
             var ram = new Ram(_oyunAlaniPanel.Size);
-
+            _ramler.Add(ram);
             _oyunAlaniPanel.Controls.Add(ram);
         }
 
@@ -93,6 +136,8 @@ namespace ComputerBuilder.Library.Concrete
         private void ZamanlayicilariBaslat()
         {
             _ramOlusturmaTimer.Start();
+            _ekranKartiOlusturmaTimer.Start();
+            _anaKartOlusturmaTimer.Start();
         }
 
         private void Bitir()
@@ -100,12 +145,15 @@ namespace ComputerBuilder.Library.Concrete
             if (!DevamEdiyorMu) return;
             DevamEdiyorMu = false;
             _gecenSureTimer.Stop();
+            _hareketTimer.Stop();
             ZamanlayicilariDurdur();
         }
 
         private void ZamanlayicilariDurdur()
         {
             _ramOlusturmaTimer.Stop();
+            _ekranKartiOlusturmaTimer.Stop();
+            _anaKartOlusturmaTimer.Stop();
         }
         public void BilgisayariHareketEttir(Yon yon)
         {
