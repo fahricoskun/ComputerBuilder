@@ -52,7 +52,7 @@
     <Compile Include="Concrete\Bilgisayar.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Concrete\EkranKartı.cs">
+    <Compile Include="Concrete\EkranKarti.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Concrete\Oyun.cs" />

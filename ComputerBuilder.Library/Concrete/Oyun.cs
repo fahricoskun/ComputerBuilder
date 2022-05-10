@@ -21,6 +21,8 @@ namespace ComputerBuilder.Library.Concrete
         private Bilgisayar _bilgisayar;
         private readonly Panel _oyunAlaniPanel;
         private readonly List<Ram> _ramler = new List<Ram>();
+        private readonly List<EkranKarti> _ekranKartlari = new List<EkranKarti>();
+        private readonly List<Anakart> _anakartlar = new List<Anakart>();
 
         #endregion
 
@@ -86,7 +88,7 @@ namespace ComputerBuilder.Library.Concrete
 
         private void EkranKartiOlusturmaTimer_Tick(object sender, EventArgs e)
         {
-            EkranKartıOlustur();
+            EkranKartiOlustur();
         }
 
         private void AnaKartOlusturmaTimer_Tick(object sender, EventArgs e)
@@ -103,20 +105,21 @@ namespace ComputerBuilder.Library.Concrete
             ZamanlayicilariBaslat();
             BilgisayarOlustur();
             RamOlustur();
-            EkranKartıOlustur();
+            EkranKartiOlustur();
             AnakartOlustur();
         }
 
+        private void EkranKartiOlustur()
+        {
+            var ekrankarti = new EkranKarti(_oyunAlaniPanel.Size);
+            _ekranKartlari.Add(ekrankarti);
+            _oyunAlaniPanel.Controls.Add(ekrankarti);
+        }
         private void AnakartOlustur()
         {
             var anakart = new Anakart(_oyunAlaniPanel.Size);
+            _anakartlar.Add(anakart);
             _oyunAlaniPanel.Controls.Add(anakart);
-        }
-
-        private void EkranKartıOlustur()
-        {
-            var ekrankartı = new EkranKartı(_oyunAlaniPanel.Size);
-            _oyunAlaniPanel.Controls.Add(ekrankartı);
         }
 
         private void RamOlustur()
