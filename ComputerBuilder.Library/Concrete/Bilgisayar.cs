@@ -1,4 +1,4 @@
-﻿using System.Windows.Forms;
+﻿using System.Drawing;
 using ComputerBuilder.Library.Abstract;
 
 namespace ComputerBuilder.Library.Concrete
@@ -6,9 +6,10 @@ namespace ComputerBuilder.Library.Concrete
     internal class Bilgisayar : Cisim 
     {
 
-        public Bilgisayar(int panelGenisligi)
+        public Bilgisayar(int panelGenisligi, Size hareketAlaniBoyutlari) : base(hareketAlaniBoyutlari)
         {
-            Left = (panelGenisligi - Width) / 2;
+            Center = panelGenisligi / 2;
+            HareketMesafesi = Width;
         }
     }
 }

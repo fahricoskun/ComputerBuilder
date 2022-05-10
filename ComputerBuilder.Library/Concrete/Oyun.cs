@@ -14,6 +14,7 @@ namespace ComputerBuilder.Library.Concrete
         private readonly Timer _gecenSureTimer = new Timer { Interval = 1000 };
         private TimeSpan _gecenSure;
         private readonly Panel _bilgisayarPanel;
+        private Bilgisayar _bilgisayar;
 
         #endregion
 
@@ -64,11 +65,9 @@ namespace ComputerBuilder.Library.Concrete
 
         private void BilgisayarOlustur()
         {
-            var bilgisayar = new Bilgisayar(_bilgisayarPanel.Width)
-            {
-                Image = Image.FromFile(@"Görseller\Bilgisayar.png")
-            };
-            _bilgisayarPanel.Controls.Add(bilgisayar);
+            _bilgisayar = new Bilgisayar(_bilgisayarPanel.Width, _bilgisayarPanel.Size);
+
+            _bilgisayarPanel.Controls.Add(_bilgisayar);
         }
 
         private void Bitir()
@@ -79,8 +78,11 @@ namespace ComputerBuilder.Library.Concrete
         }
         public void BilgisayariHareketEttir(Yon yon)
         {
-            throw new NotImplementedException();
+            if (!DevamEdiyorMu) return;
+
+            _bilgisayar.HareketEttir(yon);
         }
+        
         #endregion
     }
 }
