@@ -12,7 +12,7 @@ namespace ComputerBuilder
         {
             InitializeComponent();
 
-            _oyun = new Oyun(bilgisayarPanel);
+            _oyun = new Oyun(bilgisayarPanel,oyunAlaniPanel);
             _oyun.GecenSureDegisti += Oyun_GecenSureDegisti;
         }
 

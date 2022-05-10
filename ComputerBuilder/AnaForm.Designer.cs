@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.bilgiPanel = new System.Windows.Forms.Panel();
-            this.bilgisayarPanel = new System.Windows.Forms.Panel();
-            this.oyunAlanıPanel = new System.Windows.Forms.Panel();
             this.sureLabel = new System.Windows.Forms.Label();
+            this.bilgisayarPanel = new System.Windows.Forms.Panel();
+            this.oyunAlaniPanel = new System.Windows.Forms.Panel();
             this.bilgiPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,24 +45,6 @@
             this.bilgiPanel.Size = new System.Drawing.Size(1128, 92);
             this.bilgiPanel.TabIndex = 0;
             // 
-            // bilgisayarPanel
-            // 
-            this.bilgisayarPanel.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.bilgisayarPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.bilgisayarPanel.Location = new System.Drawing.Point(0, 607);
-            this.bilgisayarPanel.Name = "bilgisayarPanel";
-            this.bilgisayarPanel.Size = new System.Drawing.Size(1128, 50);
-            this.bilgisayarPanel.TabIndex = 1;
-            // 
-            // oyunAlanıPanel
-            // 
-            this.oyunAlanıPanel.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.oyunAlanıPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.oyunAlanıPanel.Location = new System.Drawing.Point(0, 92);
-            this.oyunAlanıPanel.Name = "oyunAlanıPanel";
-            this.oyunAlanıPanel.Size = new System.Drawing.Size(1128, 515);
-            this.oyunAlanıPanel.TabIndex = 2;
-            // 
             // sureLabel
             // 
             this.sureLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -75,12 +57,30 @@
             this.sureLabel.Text = "0:00";
             this.sureLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // bilgisayarPanel
+            // 
+            this.bilgisayarPanel.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.bilgisayarPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.bilgisayarPanel.Location = new System.Drawing.Point(0, 597);
+            this.bilgisayarPanel.Name = "bilgisayarPanel";
+            this.bilgisayarPanel.Size = new System.Drawing.Size(1128, 60);
+            this.bilgisayarPanel.TabIndex = 1;
+            // 
+            // oyunAlaniPanel
+            // 
+            this.oyunAlaniPanel.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.oyunAlaniPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.oyunAlaniPanel.Location = new System.Drawing.Point(0, 92);
+            this.oyunAlaniPanel.Name = "oyunAlaniPanel";
+            this.oyunAlaniPanel.Size = new System.Drawing.Size(1128, 505);
+            this.oyunAlaniPanel.TabIndex = 2;
+            // 
             // AnaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1128, 657);
-            this.Controls.Add(this.oyunAlanıPanel);
+            this.Controls.Add(this.oyunAlaniPanel);
             this.Controls.Add(this.bilgisayarPanel);
             this.Controls.Add(this.bilgiPanel);
             this.Name = "AnaForm";
@@ -97,7 +97,7 @@
         private System.Windows.Forms.Panel bilgiPanel;
         private System.Windows.Forms.Label sureLabel;
         private System.Windows.Forms.Panel bilgisayarPanel;
-        private System.Windows.Forms.Panel oyunAlanıPanel;
+        private System.Windows.Forms.Panel oyunAlaniPanel;
     }
 }
 

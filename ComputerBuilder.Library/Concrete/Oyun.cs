@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Drawing;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using ComputerBuilder.Library.Enum;
 using ComputerBuilder.Library.Interface;
@@ -12,9 +12,12 @@ namespace ComputerBuilder.Library.Concrete
         #region Alanlar
 
         private readonly Timer _gecenSureTimer = new Timer { Interval = 1000 };
+        private readonly Timer _ramOlusturmaTimer = new Timer { Interval = 2000 };
         private TimeSpan _gecenSure;
         private readonly Panel _bilgisayarPanel;
         private Bilgisayar _bilgisayar;
+        private readonly Panel _oyunAlaniPanel;
+        private readonly List<Ram> _ramler = new List<Ram>();
 
         #endregion
 
@@ -43,15 +46,23 @@ namespace ComputerBuilder.Library.Concrete
 
         TimeSpan IOyun.GecenSure => throw new NotImplementedException();
 
-        public Oyun(Panel bilgisayarPanel)
+        public Oyun(Panel bilgisayarPanel, Panel oyunAlaniPanel)
         {
             _bilgisayarPanel = bilgisayarPanel;
+            _oyunAlaniPanel = oyunAlaniPanel;
+            
             _gecenSureTimer.Tick += GecenSureTimer_Tick;
+            _ramOlusturmaTimer.Tick += RamOlusturmaTimer_Tick;
         }
 
         private void GecenSureTimer_Tick(object sender, EventArgs e)
         {
             GecenSure += TimeSpan.FromSeconds(1);
+        }
+
+        private void RamOlusturmaTimer_Tick(object sender, EventArgs e)
+        {
+            RamOlustur();
         }
 
         public void Baslat()
@@ -60,7 +71,16 @@ namespace ComputerBuilder.Library.Concrete
             DevamEdiyorMu = true;
             _gecenSureTimer.Start();
 
+            ZamanlayicilariBaslat();
             BilgisayarOlustur();
+            RamOlustur();
+        }
+
+        private void RamOlustur()
+        {
+            var ram = new Ram(_oyunAlaniPanel.Size);
+
+            _oyunAlaniPanel.Controls.Add(ram);
         }
 
         private void BilgisayarOlustur()
@@ -70,11 +90,22 @@ namespace ComputerBuilder.Library.Concrete
             _bilgisayarPanel.Controls.Add(_bilgisayar);
         }
 
+        private void ZamanlayicilariBaslat()
+        {
+            _ramOlusturmaTimer.Start();
+        }
+
         private void Bitir()
         {
             if (!DevamEdiyorMu) return;
             DevamEdiyorMu = false;
-            _gecenSureTimer.Stop();    
+            _gecenSureTimer.Stop();
+            ZamanlayicilariDurdur();
+        }
+
+        private void ZamanlayicilariDurdur()
+        {
+            _ramOlusturmaTimer.Stop();
         }
         public void BilgisayariHareketEttir(Yon yon)
         {

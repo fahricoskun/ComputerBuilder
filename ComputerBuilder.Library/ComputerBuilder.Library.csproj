@@ -50,6 +50,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Concrete\Oyun.cs" />
+    <Compile Include="Concrete\Ram.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enum\Yon.cs" />
     <Compile Include="Interface\IHareketEden.cs" />
     <Compile Include="Interface\IOyun.cs" />
